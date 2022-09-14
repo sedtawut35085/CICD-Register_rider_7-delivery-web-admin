@@ -25,5 +25,6 @@ export const LoginContent = {
     errorregistermailmessage : {
         emailalreadyuse     : "อีเมลนี้ได้ถูกใช้งานไปแล้ว"
     },
-    loading : "กำลังเข้าสู่ระบบ"
+    loading : "กำลังเข้าสู่ระบบ",
+    errorlogin : "อีเมลหรือรหัสผ่านไม่ถูกต้อง",
 }
