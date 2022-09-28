@@ -28,3 +28,77 @@ export const LoginContent = {
     loading : "กำลังเข้าสู่ระบบ",
     errorlogin : "อีเมลหรือรหัสผ่านไม่ถูกต้อง",
 }
+
+export const NavbarContent = {
+    titlelogo : "7-Delivery",
+    logout : "ออกจากระบบ"
+}
+
+export const SidebarContent = {
+    title : "7-Delivery-Admin",
+    home : "หน้าหลัก",
+    manageuser : "จัดการผู้ใช้",
+    acceptrider : "อนุมัติไรเดอร์",
+    logout : "ออกจากระบบ"
+}
+
+export const HomeContent = {
+    loading : {
+        status :"รอสักครู่ กำลังดึงข้อมูล...",
+        statusdelete :"รอสักครู่ กำลังลบข้อมูลผู้ใช้...",
+        statussearch : "รอสักครู่ กำลังค้นหาข้อมูล...",
+        success : "ดึงข้อมูลสำเร็จ",
+        successdelete : "ลบข้อมูลสำเร็จ",
+        successsearch : "ค้นหาข้อมูลสำเร็จ",
+        error : "ดึงข้อมูลไม่สำเร็จ",
+        errordelete : "ลบข้อมูลไม่สำเร็จ",
+        errorsearch : "ค้นหาข้อมูลไม่สำเร็จ"
+    }
+}
+
+export const DashboardContent = {
+    title : "หน้าหลัก",
+    ridercomponent : {
+        title : "ไรเดอร์",
+        statususer: "จำนวนผู้ใช้งานทั้งหมด : ",
+        statusrider : "จำนวนไรเดอร์ในขณะนี้ : ",
+        noun : "คน"
+    },
+    registercomponent : {
+        title : "จำนวนผู้ใช้ที่ขอการอนุมัติไรเดอร์ : ",
+        noun : "คน"
+    }
+}
+
+export const ManageuserContent = {
+    title : "จัดการผู้ใช้",
+    filter : "ตัวกรอง",
+    table: {
+        titleid : "ไอดีผู้ใช้งาน",
+        titlename : "ชื่อผู้ใช้",
+        titleemail : "อีเมล",
+        titlestatus : "บทบาท",
+        titlemanage : "จัดการ",
+        titleseeinfo : "ข้อมูล",
+        titledelete : "ลบ"
+    },
+    page : {
+        title : "หน้า",
+        subtitle : "ใน"
+    },
+    placeholder : {
+        search : "ค้นหา"
+    }
+}
+
+export const optionsfilter = [
+    { value: "", disable: true , label:"ไม่ระบุ"},
+    { value: "userName", disable: false , label: "ชื่อผู้ใช้งาน"},
+    { value: "userId", disable: false , label: "เลขที่ผู้ใช้งาน"},
+    { value: "userEmail", disable: false , label: "อีเมลผู้ใช้งาน"}
+]
+
+export const InformationuserContent = {
+    title : "ข้อมูลผู้ใช้",
+
+}

@@ -9,11 +9,15 @@
     "aws-amplify": "^4.3.34",
     "axios": "^0.27.2",
     "react": "^18.2.0",
+    "react-alerts-loading-component": "^0.0.1",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.0",
     "react-icons": "^4.4.0",
+    "react-loading-component": "^1.0.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.4",
+    "sweetalert": "^2.1.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
