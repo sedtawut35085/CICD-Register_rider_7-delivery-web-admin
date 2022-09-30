@@ -29,7 +29,7 @@ const HomeComponent = () => {
     const [data, setData] = useState("");
     const [datacount, setDataCount] = useState(state);
     const [page, setPage] = useState([]);
-    const pagesize = 2;
+    const pagesize = 7;
 
     const handleclick = async (e, step) => {
         e.preventDefault();
