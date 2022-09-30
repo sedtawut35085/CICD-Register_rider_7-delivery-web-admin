@@ -1,7 +1,7 @@
 import { FaUserAlt, FaCheck } from 'react-icons/fa'
 import * as constant from '../../../constant/content'
 
-const DashboardComponent = ({state}) => {
+const DashboardComponent = ({datacount}) => {
 
     return (
         <div >
@@ -20,7 +20,7 @@ const DashboardComponent = ({state}) => {
                             </div>
                             <div className='flex flex-col py-1 statusrider'>
                                 <div className="relative z-0 mb-2 w-full group">
-                                    <div className="text-gray-200 mt-1.5 text-sm">{constant.DashboardContent.ridercomponent.statususer} <span className='text-red-400'>{state.countuserstatusrider.ScannedCount}</span> {constant.DashboardContent.ridercomponent.noun}</div>
+                                    <div className="text-gray-200 mt-1.5 text-sm">{constant.DashboardContent.ridercomponent.statususer} <span className='text-red-400'>{datacount.countuserstatusrider.ScannedCount}</span> {constant.DashboardContent.ridercomponent.noun}</div>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +39,7 @@ const DashboardComponent = ({state}) => {
                             </div>
                             <div className='flex flex-col statusrider'>
                                 <div className="relative z-0 w-full group">
-                                    <div className="text-red-400 text-sm">{state.countuserstatusrider.Count}</div>
+                                    <div className="text-red-400 text-sm">{datacount.countuserstatusrider.Count}</div>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@ const DashboardComponent = ({state}) => {
                             </div>
                             <div className='flex flex-col statusrider'>
                                 <div className="relative z-0 w-full group">
-                                    <div className="text-red-400 text-sm">{state.countuserstatusregisteration.Count} </div>
+                                    <div className="text-red-400 text-sm">{datacount.countuserstatusregisteration.Count} </div>
                                 </div>
                             </div>
                         </div>

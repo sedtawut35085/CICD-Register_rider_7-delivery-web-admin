@@ -1,21 +1,21 @@
 import PersonalinformationComponent from "./step/personalinformation"
 import IdcardinformationComponent from "./step/idcardinformation"
 import CarinformationComponent from "./step/carinformation"
-
+import * as constant from '../../../constant/content'
 import { useState } from "react"
 
-const InformationComponent = ({ currentData, setIsCurrentSection}) => {
+const InformationComponent = ({ handlemodelconfirmacceptrider,handlemodelconfirmdenyrider,currentData, setIsCurrentSection }) => {
 
     const [currentstep, setCurrentstep] = useState(1);
 
     const displayStep = (step) => {
         switch (step) {
             case 1:
-                return <PersonalinformationComponent currentData={currentData}/>;
+                return <PersonalinformationComponent currentData={currentData} />;
             case 2:
-                return <IdcardinformationComponent currentData={currentData}/>;
+                return <IdcardinformationComponent currentData={currentData} />;
             case 3:
-                return <CarinformationComponent currentData={currentData}/>;
+                return <CarinformationComponent currentData={currentData} />;
             default:
         }
     };
@@ -52,17 +52,17 @@ const InformationComponent = ({ currentData, setIsCurrentSection}) => {
                             {currentstep !== 1 ?
                                 <>
                                     <button onClick={handleonclickbackpage}
-                                        className="cursor-pointer rounded-lg button-center bg-sky-800 py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
+                                        className="cursor-pointer rounded-lg button-center sm:mb-4 bg-slate-500 py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
                                     >
-                                        กลับ
+                                        {constant.InformationuserContent.buttonback}
                                     </button>
                                 </>
                                 :
                                 <>
                                     <button onClick={handleonclicksubmitpage}
-                                        className="cursor-pointer rounded-lg button-center bg-sky-800 py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
+                                        className="cursor-pointer rounded-lg button-center sm:mb-4 bg-slate-500 py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
                                     >
-                                        กลับ
+                                        {constant.InformationuserContent.buttonback}
                                     </button>
                                 </>
                             }
@@ -71,18 +71,31 @@ const InformationComponent = ({ currentData, setIsCurrentSection}) => {
                             {currentstep !== 3 ?
                                 <>
                                     <button onClick={handleonclicknextpage}
-                                        className="cursor-pointer rounded-lg button-center bg-sky-400 py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
+                                        className="cursor-pointer rounded-lg button-center mb-4 bg-sky-800 py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
                                     >
-                                        ถัดไป
+                                        {constant.InformationuserContent.buttonnext}
                                     </button>
                                 </>
                                 :
                                 <>
-                                    <button onClick={handleonclicksubmitpage}
-                                        className="cursor-pointer rounded-lg button-center bg-sky-400 py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
+                                <div className="grid sm:grid-cols-3 md:gap-x-10 justify-end button-center">
+                                    <button onClick={(e) => handlemodelconfirmacceptrider(e, currentData.userId,currentData.userName)}
+                                        className="cursor-pointer rounded-lg button-center py-2 px-4 mb-4 font-semibold uppercase transition duration-200 ease-in-out bg-green-700 dark:text-green-500 text-white"
                                     >
-                                        เรียบร้อย
+                                        {constant.InformationuserContent.buttonaccept}
                                     </button>
+                                    <button onClick={(e) => handlemodelconfirmdenyrider(e, currentData.userId,currentData.userName)}
+                                        className="cursor-pointer rounded-lg button-center py-2 px-4 mb-4 font-semibold uppercase bg-red-700 dark:bg-red-500 transition duration-200 ease-in-out hover:bg-red-900 text-white"
+                                    >
+                                        {constant.InformationuserContent.buttondeny}
+                                    </button>
+                                    <button onClick={handleonclicksubmitpage}
+                                        className="cursor-pointer rounded-lg button-center bg-sky-800 py-2 px-4 mb-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
+                                    >
+                                        {constant.InformationuserContent.buttonsuccess}
+                                    </button>
+                                </div>
+                                   
                                 </>
                             }
                         </div>
@@ -90,12 +103,6 @@ const InformationComponent = ({ currentData, setIsCurrentSection}) => {
                 </div>
             </div>
         </>
-        // <div className="">
-        //     {currentUserid}
-        //     <button on>
-
-        //     </button>
-        // </div>
     )
 }
 

@@ -91,3 +91,26 @@ export const deleteuser = async (params) => {
       })
   return response
 }
+
+export const updateUser = async (params , bodydata) => {
+  await Auth.currentSession()
+  .then(res => {
+    token = res.getAccessToken();
+  })
+  .catch(err => console.log(err));
+  await axios({
+      method: 'patch',
+      url: `${baseUrl}/user`,
+      params: params,
+      headers: { 
+          'Authorization': token.getJwtToken(), 
+          'Content-Type': 'text/plain'
+      },
+      data: bodydata
+      }).then((res) => {
+        response = res
+      }).catch((err)=>{
+        response = err
+      })
+  return response
+}

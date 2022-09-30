@@ -1,5 +1,5 @@
 import * as constant from '../../../constant/content'
-import { FaSearch, FaTimes } from 'react-icons/fa'
+import { FaSearch, FaTimes, FaInfo, FaTrashAlt } from 'react-icons/fa'
 import { getUser } from '../../../service';
 import { useState } from 'react'
 import { getdataeachUser } from '../../../service';
@@ -12,7 +12,7 @@ const ManageuserComponent = ({ handleclosefeature, filterName, filterAtt, showfi
     const [currentId, setCurrentId] = useState("")
     const [currentName, setCurrentName] = useState("")
     const [startdata, setStartdata] = useState(0)
-    const [finaldata, setFinaldata] = useState(5)
+    const [finaldata, setFinaldata] = useState(pagesize)
 
     const handlemodel = async (e, id, name) => {
         e.preventDefault();
@@ -26,16 +26,15 @@ const ManageuserComponent = ({ handleclosefeature, filterName, filterAtt, showfi
         if (showfilter === true) {
             setStartdata(pagesize * (page - 1))
             setFinaldata(pagesize * (page))
-            setCurrentPage(page)
         } else {
             var params = {
                 "pagesize": pagesize,
                 "pageNumber": page
             }
-            let responsedata = await getUser(params)
-            setData(responsedata.data.users)
-            setCurrentPage(page)
+            let data = await getUser(params)
+            setData(data.data.users.Items)
         }
+        setCurrentPage(page)
 
     }
 
@@ -71,17 +70,19 @@ const ManageuserComponent = ({ handleclosefeature, filterName, filterAtt, showfi
         <>
             {iscurrentSection === true ?
                 <>
-                    {constant.InformationuserContent.title}
                     <InformationComponent currentData={currentData} setIsCurrentSection={setIsCurrentSection} />
                 </>
                 :
                 <>
                     <div className="md:grid md:grid-cols-12 gap-5 pt-8">
                         <div className="md:col-span-12">
-                            <ModelconfirmdeleteComponent handledeleteuser={handledeleteuser} showModal={showModal} setShowModal={setShowModal} userId={currentId} userName={currentName} />
+                            <ModelconfirmdeleteComponent pagesize={pagesize} setStartdata={setStartdata} setFinaldata={setFinaldata} handledeleteuser={handledeleteuser} showModal={showModal} setShowModal={setShowModal} userId={currentId} userName={currentName} />
                             {constant.ManageuserContent.title}
                             <div className="overflow-x-auto relative mt-4">
-                                <form onSubmit={querysearchuser} className="xl:grid xl:grid-cols-12 flex justify-between items-center pb-4 bg-white dark:bg-gray-900">
+                                <form onSubmit={(e) => {
+                                    setStartdata(0)
+                                    setFinaldata(pagesize)
+                                    querysearchuser(e)}}  className="xl:grid xl:grid-cols-12 flex justify-between items-center pb-4 bg-white dark:bg-gray-900">
                                     <div className='flex flex-col xl:col-span-5'>
                                         <FaSearch className='absolute pt-2.5 pl-4 w-10 h-7 text-gray-500'></FaSearch>
                                         <input className='border-1 border-gray pl-12 pr-4 md:w-96 pb-2 pt-2 text-sm rounded-lg text-gray-500' type="text" name="search" required placeholder={constant.ManageuserContent.placeholder.search} />
@@ -102,7 +103,7 @@ const ManageuserComponent = ({ handleclosefeature, filterName, filterAtt, showfi
                                         <button type='submit'
                                             className="cursor-pointer rounded-lg button-center bg-sky-800 py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white text-sm"
                                         >
-                                            ค้นหา
+                                            {constant.ManageuserContent.buttonsearch}
                                         </button>
                                     </div>
                                 </form>
@@ -114,11 +115,11 @@ const ManageuserComponent = ({ handleclosefeature, filterName, filterAtt, showfi
                                                 <div
                                                     className="pl-12 rounded-lg button-center bg-white border-2 py-2 pr-6 font-semibold uppercase text-black transition duration-200 ease-in-out text-sm"
                                                 >
-                                                    ผลการค้นหาในฟีเจอร์ "{filterAtt}" ที่ตรงกับ "{filterName}"
+                                                    {constant.ManageuserContent.filtername[0]} "{filterAtt}" {constant.ManageuserContent.filtername[1]} "{filterName}"
                                                 </div>
                                                 <FaTimes onClick={(e) => {
                                                     setStartdata(0)
-                                                    setFinaldata(5)
+                                                    setFinaldata(pagesize)
                                                     handleclosefeature(e)
                                                 }} className='absolute pt-2.5 pl-2 w-10 h-7 text-gray-500 cursor-pointer hover:text-red-500'></FaTimes>
                                             </div>
@@ -143,7 +144,7 @@ const ManageuserComponent = ({ handleclosefeature, filterName, filterAtt, showfi
                                             <th scope="col" className="py-3 px-6 w-[200px]">
                                                 {constant.ManageuserContent.table.titlestatus}
                                             </th>
-                                            <th scope="col" className="py-3 px-6">
+                                            <th scope="col" className="py-3 px-6 w-[200px]">
                                                 {constant.ManageuserContent.table.titlemanage}
                                             </th>
                                         </tr>
@@ -164,12 +165,27 @@ const ManageuserComponent = ({ handleclosefeature, filterName, filterAtt, showfi
                                                     {data.userStatus}
                                                 </td>
                                                 <td className="py-4 px-6 flex">
-                                                    <h4 onClick={(e) => handleclickdata(e, data.userId)} className="font-medium text-green-800 dark:text-green-500 hover:underline cursor-pointer pr-2">{constant.ManageuserContent.table.titleseeinfo}</h4>
-                                                    <h4 onClick={(e) => handlemodel(e, data.userId, data.userName)} className="pl-1 font-medium text-red-800 dark:text-red-500 cursor-pointer hover:underline">{constant.ManageuserContent.table.titledelete}</h4>
+                                                    <h4 onClick={(e) => handleclickdata(e, data.userId)} className="font-medium text-green-800 dark:text-green-500 hover:underline cursor-pointer pr-8"><FaInfo className='absolute -ml-5 mt-0.5'></FaInfo>{constant.ManageuserContent.table.titleseeinfo}</h4>
+                                                    <h4 onClick={(e) => handlemodel(e, data.userId, data.userName)} className="pl-1 font-medium text-red-800 dark:text-red-500 cursor-pointer hover:underline"><FaTrashAlt className='absolute -ml-5 mt-0.5'></FaTrashAlt>{constant.ManageuserContent.table.titledelete}</h4>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     ))}
+                                     {data.length === 0 ?
+                                        <>
+                                            <tbody >
+                                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                                    <td className="py-4 px-6 font-medium text-gray-900 w-[300px]" >
+                                                        {constant.ManageuserContent.dataempty}
+                                                    </td>
+                                                    
+                                                </tr>
+                                            </tbody>
+                                        </>
+                                        :
+                                        <>
+                                        </>
+                                    }
                                 </table>
 
                                 <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">

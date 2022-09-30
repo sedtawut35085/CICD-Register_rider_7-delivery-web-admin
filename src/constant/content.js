@@ -44,15 +44,21 @@ export const SidebarContent = {
 
 export const HomeContent = {
     loading : {
+        statusupdate : "กำลังอัพเดทข้อมูล",
+        statusdashboard : "กำลังโหลด",
+        successdashboard : "สำเร็จ",
+        errorodashboard : "ไม่สำเร็จ",
         status :"รอสักครู่ กำลังดึงข้อมูล...",
         statusdelete :"รอสักครู่ กำลังลบข้อมูลผู้ใช้...",
         statussearch : "รอสักครู่ กำลังค้นหาข้อมูล...",
         success : "ดึงข้อมูลสำเร็จ",
         successdelete : "ลบข้อมูลสำเร็จ",
         successsearch : "ค้นหาข้อมูลสำเร็จ",
+        successupdate : "อัพเดทข้อมูลสำเร็จ",
         error : "ดึงข้อมูลไม่สำเร็จ",
         errordelete : "ลบข้อมูลไม่สำเร็จ",
-        errorsearch : "ค้นหาข้อมูลไม่สำเร็จ"
+        errorsearch : "ค้นหาข้อมูลไม่สำเร็จ",
+        errorupdate : "อัพเดทข้อมูลไม่สำเร็จ",
     }
 }
 
@@ -73,6 +79,9 @@ export const DashboardContent = {
 export const ManageuserContent = {
     title : "จัดการผู้ใช้",
     filter : "ตัวกรอง",
+    buttonsearch : "ค้นหา",
+    filtername : ["ผลการค้นหาในฟีเจอร์","ที่ตรงกับ"],
+    dataempty : "ไม่พบข้อมูลตามการค้นหา",
     table: {
         titleid : "ไอดีผู้ใช้งาน",
         titlename : "ชื่อผู้ใช้",
@@ -80,7 +89,9 @@ export const ManageuserContent = {
         titlestatus : "บทบาท",
         titlemanage : "จัดการ",
         titleseeinfo : "ข้อมูล",
-        titledelete : "ลบ"
+        titledelete : "ลบ",
+        titleaccept : "อนุมัติ",
+        titledeny : "ปฎิเสธ"
     },
     page : {
         title : "หน้า",
@@ -100,5 +111,123 @@ export const optionsfilter = [
 
 export const InformationuserContent = {
     title : "ข้อมูลผู้ใช้",
+    buttonback : "กลับ",
+    buttonnext : "ถัดไป",
+    buttonsuccess : "เรียบร้อย",
+    buttonaccept : "อนุมัติ",
+    buttondeny : "ปฎิเสธ",
+}
 
+export const PersonalInformationuserContent = {
+    label : {
+        title : "ข้อมูลผู้ใช้",
+        pictureuser : "รูปภาพผู้ใช้",
+        name : "ชื่อ",
+        surname : "นามสกุล",
+        gender : "เพศ",
+        age : "อายุ",
+        email : "อีเมล",
+        phone : "เบอร์โทรศัพท์",
+        birthday : "วันเกิด",
+        country : "จังหวัดที่ต้องการรับงาน",
+    },
+    button : "คลิกเพื่อดูรูปภาพ"
+}
+
+export const RelevantInformationuserContent = {
+    label : {
+        title : "ข้อมูลสำหรับบุคคลที่สามารถติดต่อได้",
+        name : "ชื่อ",
+        surname : "นามสกุล",
+        relationship : "ความสัมพันธ์",
+        phone : "เบอร์โทรศัพท์",
+    },
+    button : "คลิกเพื่อดูรูปภาพ"
+}
+
+export const IdcardInformationuserContent = {
+    label : {
+        title : "ข้อมูลบัตรประชาชน",
+        name : "ชื่อ",
+        cardNumber : "หมายเลขบัตรประชาชน",
+        cardIssueDate : "วันที่ออกบัตร",
+        cardExpireDate : "วันหมดอายุบัตร",
+        picture : "รูปภาพบัตรประชาชน",
+        titlepicture : "รูปภาพ"
+    },
+    button : "คลิกเพื่อดูรูปภาพ"
+}
+
+export const BookbankInformationuserContent = {
+    label : {
+        name : "ชื่อบัญชีธนาคาร",
+        bookbankNumber : "เลขบัญชีธนาคาร",
+        namebank : "ชื่อธนาคาร",
+        picture : "รูปภาพบัญชีธนาคาร"
+    },
+    button : "คลิกเพื่อดูรูปภาพ"
+}
+
+export const CriminalhistoryInformationuserContent = {
+    label : {
+        picture : "รูปภาพประวัติอาญชกรรม"
+    },
+    button : "คลิกเพื่อดูรูปภาพ"
+}
+
+export const CarInformationuserContent = {
+    label : {
+        title : "ข้อมูลยานพาหนะ",
+        carType : "ชนิดของยานพาหนะ",
+        carNumber : "เลขทะเบียน",
+        typeofCarsign : "ประเภทป้าย",
+        carCountry : "จังหวัดที่จดทะเบียนรถ",
+        carBrand : "ยี่ห้อ",
+        carColor : "สีรถ",
+        licencePhoto : "รูปภาพจดทะเบียนรถ",
+        licenseIssueDate : "วันที่ออก พรบ.",
+        licenseExpireDate : "วันหมดอายุ พรบ.",
+        licenseName : "ชื่อผู้ถือกรมสิทธิ์",
+        taxIssueDate : "วันที่เสียภาษี",
+        taxExpireDate : "วันที่ครบกำหนดเสียภาษี",
+        taxpicture : "รูปภาพรายการเสียภาษี"
+    },
+    button : "คลิกเพื่อดูรูปภาพ"
+}
+
+export const DriverlicenseInformationuserContent = {
+    label : {
+        title : "ข้อมูลใบขับขี่",
+        numberdriverLicense : "เลขที่ใบขับขี่",
+        typecardriverLicense : "ประเภทใบขับขี่",
+        issuedatedriverLicense : "วันที่ออกบัตร",
+        expiredatedriverLicense : "วันที่บัตรหมดอายุ",
+        smartcarddriverlicense : "ใบขับขี่ชนิด : แบบธรรมดา",
+        normalcarddriverlicense : "ใบขับขี่ชนิด : แบบสมาร์ตการ์ด",
+        titlepicture : "รูปภาพ",
+        picture : "รูปภาพใบขับขี่",
+        pictureconfirmfriverlicense : ["รูปภาพยืนยันใบขับขี่","ตลอดชีพ"]
+    },
+    button : "คลิกเพื่อดูรูปภาพ"
+}
+
+export const ModelconfirmdenyContent = {
+    title : "ยืนยันการปฎิเสธผู้ใช้",
+    des : ["คุณต้องการปฎิเสธผู้ใช้รหัส","ชื่อผู้ใช้","ในการเป็นไรเดอร์ ?"],
+    buttonclose : "ยืนยัน",
+    buttonsubmit : "ปิด"
+}
+
+export const ModelconfirmdeleteContent = {
+    title : "ยืนยันการลบผู้ใช้",
+    des : ["คุณต้องการลบข้อมูลผู้ใช้รหัส","ชื่อผู้ใช้"],
+    buttonclose : "ยืนยัน",
+    buttonsubmit : "ปิด"
+}
+
+export const ModelconfirmacceptContent = {
+    title : "ยืนยันการอนุมัติไรเดอร์",
+    des : ["คุณต้องการอนุมัติผู้ใช้รหัส","ชื่อผู้ใช้","เป็นไรเดอร์ไหม ?"],
+    buttonclose : "ยืนยัน",
+    buttonsubmit : "ปิด"
 }

@@ -1,10 +1,10 @@
 import * as constant from '../../../constant/content'
 
-const ModelconfirmdeleteComponent = ({ setStartdata,setFinaldata,handledeleteuser,showModal,setShowModal,userId,userName,pagesize}) => {
+const ModelconfirmacceptriderComponent = ({ pagesize,setStartdata,setFinaldata,handleacceptuser,showModalConfirmAcceptRider,setShowModalConfirmAcceptRider,userId,userName}) => {
 
     return (
         <>
-            {showModal ? (
+            {showModalConfirmAcceptRider ? (
                 <>
                     <div
                         className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
@@ -15,19 +15,19 @@ const ModelconfirmdeleteComponent = ({ setStartdata,setFinaldata,handledeleteuse
                                 {/*header*/}
                                 <div className="flex items-start justify-between p-4 border-b border-solid border-slate-200 rounded-t">
                                     <h3 className="text-xl font-semibold">
-                                        {constant.ModelconfirmdeleteContent.title}
+                                        {constant.ModelconfirmacceptContent.title}
                                     </h3>
                                     <button
                                         className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-2xl leading-none font-semibold outline-none focus:outline-none"
-                                        onClick={() => setShowModal(false)}
+                                        onClick={() => setShowModalConfirmAcceptRider(false)}
                                     >
                                     </button>
                                 </div>
                                 {/*body*/}
                                 <div className="relative p-6 flex-auto min-w-[500px]">
                                     <p className="my-1 text-slate-500 text-lg leading-relaxed text-center">
-                                        {constant.ModelconfirmdeleteContent.des[0]} {userId} <br />
-                                        {constant.ModelconfirmdeleteContent.des[1]} {userName || userId}
+                                       {constant.ModelconfirmacceptContent.des[0]} <span className="text-black">{userId}</span> <br />
+                                       {constant.ModelconfirmacceptContent.des[1]}  <span className="text-black">{userName || userId} </span>{constant.ModelconfirmacceptContent.des[2]} 
                                     </p>
                                 </div>
                                 {/*footer*/}
@@ -35,9 +35,9 @@ const ModelconfirmdeleteComponent = ({ setStartdata,setFinaldata,handledeleteuse
                                     <button
                                         className="text-white bg-sky-800 background-transparent font-bold uppercase px-6 py-2 text-sm rounded mr-2 outline-none focus:outline-none ease-linear transition-all duration-150"
                                         type="button"
-                                        onClick={() => setShowModal(false)}
+                                        onClick={() => setShowModalConfirmAcceptRider(false)}
                                     >
-                                        {constant.ModelconfirmdeleteContent.buttonclose}
+                                        {constant.ModelconfirmacceptContent.buttonclose} 
                                     </button>
                                     <button
                                         className="bg-red-500 text-white hover:bg-red-800 font-bold uppercase text-sm px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150"
@@ -45,9 +45,9 @@ const ModelconfirmdeleteComponent = ({ setStartdata,setFinaldata,handledeleteuse
                                         onClick={(e)=> {
                                             setStartdata(0)
                                             setFinaldata(pagesize)
-                                            handledeleteuser(e, userId)}}
+                                            handleacceptuser(e, userId)}}
                                     >
-                                        {constant.ModelconfirmdeleteContent.buttonsubmit}
+                                        {constant.ModelconfirmacceptContent.buttonsubmit} 
                                     </button>
                                 </div>
                             </div>
@@ -60,4 +60,4 @@ const ModelconfirmdeleteComponent = ({ setStartdata,setFinaldata,handledeleteuse
     )
 }
 
-export default ModelconfirmdeleteComponent
+export default ModelconfirmacceptriderComponent
