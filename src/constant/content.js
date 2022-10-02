@@ -214,20 +214,20 @@ export const DriverlicenseInformationuserContent = {
 export const ModelconfirmdenyContent = {
     title : "ยืนยันการปฎิเสธผู้ใช้",
     des : ["คุณต้องการปฎิเสธผู้ใช้รหัส","ชื่อผู้ใช้","ในการเป็นไรเดอร์ ?"],
-    buttonclose : "ยืนยัน",
-    buttonsubmit : "ปิด"
+    buttonclose : "ปิด",
+    buttonsubmit : "ยืนยัน"
 }
 
 export const ModelconfirmdeleteContent = {
     title : "ยืนยันการลบผู้ใช้",
     des : ["คุณต้องการลบข้อมูลผู้ใช้รหัส","ชื่อผู้ใช้"],
-    buttonclose : "ยืนยัน",
-    buttonsubmit : "ปิด"
+    buttonclose : "ปิด",
+    buttonsubmit : "ยืนยัน"
 }
 
 export const ModelconfirmacceptContent = {
     title : "ยืนยันการอนุมัติไรเดอร์",
     des : ["คุณต้องการอนุมัติผู้ใช้รหัส","ชื่อผู้ใช้","เป็นไรเดอร์ไหม ?"],
-    buttonclose : "ยืนยัน",
-    buttonsubmit : "ปิด"
+    buttonclose : "ปิด",
+    buttonsubmit : "ยืนยัน"
 }
