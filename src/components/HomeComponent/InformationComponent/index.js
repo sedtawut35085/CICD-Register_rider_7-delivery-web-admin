@@ -62,7 +62,7 @@ const InformationComponent = ({ handlemodelconfirmacceptrider,handlemodelconfirm
                                     <button onClick={handleonclicksubmitpage}
                                         className="cursor-pointer rounded-lg button-center sm:mb-6 bg-slate-500 py-2 px-4 font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-slate-700 hover:text-white"
                                     >
-                                        {constant.InformationuserContent.buttonback}
+                                        {constant.InformationuserContent.buttonback} 
                                     </button>
                                 </>
                             }
