@@ -106,7 +106,8 @@ export const optionsfilter = [
     { value: "", disable: true , label:"ไม่ระบุ"},
     { value: "userName", disable: false , label: "ชื่อผู้ใช้งาน"},
     { value: "userId", disable: false , label: "เลขที่ผู้ใช้งาน"},
-    { value: "userEmail", disable: false , label: "อีเมลผู้ใช้งาน"}
+    { value: "userEmail", disable: false , label: "อีเมลผู้ใช้งาน"},
+    { value: "userIdcardnumber", disable: false , label: "เลขบัตรประชาชนผู้ใช้งาน"}
 ]
 
 export const InformationuserContent = {

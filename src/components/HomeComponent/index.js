@@ -248,6 +248,8 @@ const HomeComponent = () => {
             setFilterAtt("ชื่อผู้ใช้งาน")
         }else if(filter.value === "userId"){
             setFilterAtt("เลขที่ผู้ใช้งาน")
+        }else if(filter.value === "userIdcardnumber"){
+            setFilterAtt("เลขบัตรประชาชนผู้ใช้งาน")
         }else{
             setFilterAtt("อีเมลผู้ใช้งาน")
         }
@@ -285,6 +287,8 @@ const HomeComponent = () => {
             setFilterAtt("ชื่อผู้ใช้งาน")
         }else if(filter.value === "userId"){
             setFilterAtt("เลขที่ผู้ใช้งาน")
+        }else if(filter.value === "userIdcardnumber"){
+            setFilterAtt("เลขบัตรประชาชนผู้ใช้งาน")
         }else{
             setFilterAtt("อีเมลผู้ใช้งาน")
         }
